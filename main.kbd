@@ -1,0 +1,82 @@
+(defcfg
+    linux-dev /dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd
+    process-unmapped-keys yes
+)
+
+(defsrc)
+(deflayermap (default)
+    ;; Other layers
+    caps (tap-hold 200 200 esc (layer-while-held magic))
+    / (tap-hold 200 200 / (layer-while-held num))
+    ; (tap-hold 200 200 ; (layer-while-held tmux-tap))
+    ' (tap-hold 200 200 ' (layer-while-held tmux-hold))
+    ` (tap-hold 200 200 ` (layer-while-held fun))
+)
+
+;; Layer: Magic
+(deflayermap (magic)
+    ;; Navigate (Vim style)
+    h left 
+    j down
+    k up
+    l right
+    w (multi ctl right)
+    b (multi ctl left)
+    ;; Edit
+    ; bspc
+    ' del
+    ;; Desktop (For custom KDE shortcuts)
+    f (tap-hold 200 200 esc met)
+    g (tap-hold 200 200 esc (multi met ctl))
+    x (multi lalt f4)
+)
+
+;; Layer: Desktop (UNUSED)
+(deflayermap (desktop)
+    ;; Navigate
+    h (multi met left)
+    j (multi met down)
+    k (multi met up)
+    l (multi met right)
+)
+
+;; Layer: Tmux (Tap)
+(deflayermap (tmux-tap)
+    ;; Navigate
+    h (macro C-b 20 left) 
+    j (macro C-b 20 down) 
+    k (macro C-b 20 up) 
+    l (macro C-b 20 right) 
+    ;; Split
+    i (macro C-b 20 S-5)
+    o (macro C-b 20 S-')
+)
+
+;; Layer: Tmux (Hold)
+(deflayermap (tmux-hold)
+    ;; Move
+    h (multi ctl b left) 
+    j (multi ctl b down) 
+    k (multi ctl b up) 
+    l (multi ctl b right) 
+)
+
+;; Layer: Num
+(deflayermap (num)
+    ;; Digits & Signs
+    a 1
+    s 2
+    d 3
+    f 4
+    g 5
+    h 6
+    j 7
+    k 8
+    l 9
+    ; 0
+)
+
+;; Layer: Fun
+(deflayermap (fun)
+    r lrld
+)
