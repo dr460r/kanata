@@ -1,0 +1,2 @@
+# Kanata configuration
+
