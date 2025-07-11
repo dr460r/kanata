@@ -1,5 +1,5 @@
 (defcfg
-    linux-dev /dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd
+    ;; linux-dev /dev/input/by-id/usb-Logitech_USB_Keyboard-event-kbd
     process-unmapped-keys yes
 )
 
@@ -20,15 +20,29 @@
     j down
     k up
     l right
-    w (multi ctl right)
-    b (multi ctl left)
+    ;; w (multi ctl right)
+    ;; b (multi ctl left)
+
     ;; Edit
     ; bspc
     ' del
-    ;; Desktop (For custom KDE shortcuts)
-    f (tap-hold 200 200 esc met)
-    g (tap-hold 200 200 esc (multi met ctl))
+
+    ;; Desktop
+    u pgup
+    i pgdn
     x (multi lalt f4)
+
+    ;; Desktop (For custom KDE shortcuts)
+    g (tap-hold 200 200 esc lmet)
+    f (tap-hold 200 200 esc lalt)
+    d (tap-hold 200 200 esc lsft)
+    s (tap-hold 200 200 esc lctl)
+
+    ;; Desktop (For Ubuntu Gnome default shortcuts)
+    w (multi ctl alt met 1)
+    e (multi ctl alt met 2)
+    r (multi ctl alt met 3)
+    t (multi ctl alt met 4)
 )
 
 ;; Layer: Desktop (UNUSED)
